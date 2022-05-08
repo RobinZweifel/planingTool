@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Event} from "../model/event";
+
 
 @Component({
   selector: 'app-event',
@@ -8,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
 export class EventComponent implements OnInit {
 
   constructor() { }
+
+  @Input() event: Event = {id: 0, title: "", date: "", organizer: "", extra: ""};
 
   ngOnInit(): void {
   }

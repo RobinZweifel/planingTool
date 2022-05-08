@@ -1,11 +1,11 @@
 <mat-card>
-  <mat-card-title>Fette Party</mat-card-title>
+  <mat-card-title>{{event.title}}</mat-card-title>
   <mat-card-content>
 
     <p>
       <mat-form-field appearance="legacy">
         <mat-label>Organizer</mat-label>
-        <input matInput placeholder="Placeholder">
+        <input matInput placeholder="Placeholder" [value]="event.organizer">
         <mat-icon matSuffix>edit</mat-icon>
       </mat-form-field>
     </p>
@@ -13,7 +13,7 @@
     <p>
       <mat-form-field appearance="legacy">
         <mat-label>Date</mat-label>
-        <input matInput [matDatepicker]="picker">
+        <input matInput [matDatepicker]="picker" [value]="event.date">
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
@@ -22,17 +22,8 @@
 
     <p>
       <mat-form-field appearance="legacy">
-        <mat-label>Start</mat-label>
-        <input matInput placeholder="Placeholder">
-        <mat-icon matSuffix>edit</mat-icon>
-      </mat-form-field>
-    </p>
-
-    <p>
-      <mat-form-field appearance="legacy">
         <mat-label>Autosize textarea</mat-label>
-        <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5">
-        </textarea>
+        <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5">{{event.extra}}</textarea>
         <mat-icon matSuffix>edit</mat-icon>
       </mat-form-field>
     </p>
@@ -40,6 +31,6 @@
     <button style="margin-left: 80%" mat-mini-fab color="warn">
       <mat-icon>delete</mat-icon>
     </button>
-    
+
   </mat-card-content>
 </mat-card>

@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatSidenav} from "@angular/material/sidenav";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Event} from "../model/event";
+import {EventService} from "../event/event.service";
 
 @Component({
   selector: 'app-main',
@@ -10,23 +11,21 @@ import {Event} from "../model/event";
 })
 export class MainComponent implements OnInit {
 
-  events: Event[] = [
-    {id: 1, title: "Geburi Party", organizer: "Robin", date: "", extra: "Eine Party mit 10 leuten"},
-    {id: 2, title: "Dinner Pary", organizer: "Joel", date: "", extra: "6 Leute, 2 übernachten"},
-    {id: 3, title: "Dart Abend", organizer: "Papa", date: "", extra: "Bitte noch Vodka kaufen"}
-  ];
+  events: Event[] = [];
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private eventService: EventService
   ) { }
 
   ngOnInit(): void {
+    this.events = this.eventService.getEvents();
   }
 
   @ViewChild('sidenav') sidenav: MatSidenav | undefined;
 
-  isExpanded = true;
+  isExpanded = false;
   showMenu: boolean = false;
   isShowing = false;
 
@@ -47,5 +46,4 @@ export class MainComponent implements OnInit {
 
     });
    }
-
 }

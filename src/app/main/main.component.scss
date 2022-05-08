@@ -7,10 +7,16 @@
   .content {
     display: flex;
     height: 100%;
+    overflow-y: hidden;
+    width: 100%;
     //align-items: center;
     //justify-content: center;
   }
 
   .sidenav {
     padding: 5px;
+  }
+
+  app-event{
+    max-height: fit-content;
   }

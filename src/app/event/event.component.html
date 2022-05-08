@@ -22,13 +22,13 @@
 
     <p>
       <mat-form-field appearance="legacy">
-        <mat-label>Autosize textarea</mat-label>
+        <mat-label>Infos</mat-label>
         <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5">{{event.extra}}</textarea>
         <mat-icon matSuffix>edit</mat-icon>
       </mat-form-field>
     </p>
 
-    <button style="margin-left: 80%" mat-mini-fab color="warn">
+    <button (click)="deleteEvent(event)" style="margin-left: 80%" mat-mini-fab color="warn">
       <mat-icon>delete</mat-icon>
     </button>
 

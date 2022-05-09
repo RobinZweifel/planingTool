@@ -1,11 +1,12 @@
 <mat-card>
-  <mat-card-title>{{event.title}}</mat-card-title>
+  <mat-card-title>{{happening.title}}</mat-card-title>
   <mat-card-content>
 
     <p>
       <mat-form-field appearance="legacy">
         <mat-label>Organizer</mat-label>
-        <input matInput placeholder="Placeholder" [value]="event.organizer">
+        <input matInput placeholder="Name" [value]="happening.organizer">
+        <mat-hint>The host of the event</mat-hint>
         <mat-icon matSuffix>edit</mat-icon>
       </mat-form-field>
     </p>
@@ -13,22 +14,33 @@
     <p>
       <mat-form-field appearance="legacy">
         <mat-label>Date</mat-label>
-        <input matInput [matDatepicker]="picker" [value]="event.date">
+        <input matInput placeholder="Date" [value]="happening.date">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-icon matSuffix>edit</mat-icon>
+      </mat-form-field>
+    </p>
+
+    <!--
+    <p>
+      <mat-form-field appearance="legacy">
+        <mat-label>Date</mat-label>
+        <input matInput [matDatepicker]="picker" [value]="happening.date">
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
     </p>
+-->
 
     <p>
       <mat-form-field appearance="legacy">
         <mat-label>Infos</mat-label>
-        <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5">{{event.extra}}</textarea>
+        <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5">{{happening.extra}}</textarea>
         <mat-icon matSuffix>edit</mat-icon>
       </mat-form-field>
     </p>
 
-    <button (click)="deleteEvent(event)" style="margin-left: 80%" mat-mini-fab color="warn">
+    <button (click)="deleteEvent(happening)" style="margin-left: 80%" mat-mini-fab color="warn">
       <mat-icon>delete</mat-icon>
     </button>
 

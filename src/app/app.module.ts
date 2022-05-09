@@ -10,7 +10,6 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatListModule} from "@angular/material/list";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
-import { AddNewEventComponent } from './add-new-event/add-new-event.component';
 import {RouterModule, Routes} from '@angular/router';
 import { EventComponent } from './event/event.component';
 import {MatCardModule} from "@angular/material/card";
@@ -18,14 +17,17 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
+import {MatDialogModule} from '@angular/material/dialog';
+import { AddEventDialogComponent } from './add-event-dialog/add-event-dialog.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    AddNewEventComponent,
-    EventComponent
+    EventComponent,
+    AddEventDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,9 @@ import {MatNativeDateModule} from "@angular/material/core";
     MatFormFieldModule,
     MatInputModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatDialogModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,9 +6,9 @@
 	<mat-sidenav #sidenav class="sidenav" mode="side" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
 		<mat-nav-list>
 			<div class="submenu" [ngClass]="{'expanded' : showMenu}" *ngIf="isShowing || isExpanded">
-				<a mat-list-item>
+				<a mat-list-item (click)="openDialog()">
           <mat-icon>add</mat-icon>
-          Add New Event
+          Add New Happening
         </a>
 			</div>
 		</mat-nav-list>
@@ -17,7 +17,7 @@
 	</mat-sidenav>
 
 	<div class="content">
-    <app-event *ngFor="let event of events" [event]="event"></app-event>
+    <app-event *ngFor="let happening of happenings" [happening]="happening"></app-event>
   </div>
 
 </mat-sidenav-container>

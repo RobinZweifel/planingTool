@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatSidenav} from "@angular/material/sidenav";
 import {ActivatedRoute, Router} from "@angular/router";
-import {Event} from "../model/event";
+import {Happening} from "../model/happening";
 import {EventService} from "../event/event.service";
+import {MatDialog} from "@angular/material/dialog";
+import {AddEventDialogComponent} from "../add-event-dialog/add-event-dialog.component";
 
 @Component({
   selector: 'app-main',
@@ -11,23 +13,27 @@ import {EventService} from "../event/event.service";
 })
 export class MainComponent implements OnInit {
 
-  events: Event[] = [];
+  happenings: Happening[] = [];
+  isExpanded = false;
+  showMenu: boolean = false;
+  isShowing = false;
+
+  @ViewChild('sidenav') sidenav: MatSidenav | undefined;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private eventService: EventService
+    private eventService: EventService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
-    this.events = this.eventService.getEvents();
+    this.happenings = this.eventService.getEvents();
   }
 
-  @ViewChild('sidenav') sidenav: MatSidenav | undefined;
-
-  isExpanded = false;
-  showMenu: boolean = false;
-  isShowing = false;
+  openDialog() {
+    this.dialog.open(AddEventDialogComponent);
+  }
 
   mouseenter() {
     if (!this.isExpanded) {
@@ -40,10 +46,4 @@ export class MainComponent implements OnInit {
       this.isShowing = false;
     }
   }
-
-  addEvent(){
-    this.router.navigate(['add-event'], {relativeTo: this.route}).then(r =>{
-
-    });
-   }
 }

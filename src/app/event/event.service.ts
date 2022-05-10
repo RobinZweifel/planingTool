@@ -22,4 +22,5 @@ export class EventService {
   getnewId(){
     return Math.max(...this.events.map(o => o.id))+1;
   }
+  
 }

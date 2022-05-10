@@ -18,4 +18,8 @@ export class EventService {
   getEvents(){
     return this.events;
   }
+
+  getnewId(){
+    return Math.max(...this.events.map(o => o.id))+1;
+  }
 }

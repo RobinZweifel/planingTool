@@ -18,8 +18,9 @@ export class AddEventDialogComponent implements OnInit {
   }
 
   addEvent(){
+    this.newHappening.id = this.eventService.getnewId();
     this.eventService.events.push(this.newHappening);
-
+    console.log(this.eventService.events);
   }
 
 }

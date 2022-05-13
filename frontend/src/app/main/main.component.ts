@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatSidenav} from "@angular/material/sidenav";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Happening} from "../model/happening";
-import {EventService} from "../event/event.service";
+import {EventService} from "../services/event.service";
 import {MatDialog} from "@angular/material/dialog";
 import {AddEventDialogComponent} from "../add-event-dialog/add-event-dialog.component";
 

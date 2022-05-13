@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Happening} from "../model/happening";
-import {EventService} from "../event/event.service";
+import {EventService} from "../services/event.service";
 
 @Component({
   selector: 'app-add-event-dialog',
@@ -18,8 +18,7 @@ export class AddEventDialogComponent implements OnInit {
   }
 
   addEvent(){
-    this.newHappening.id = this.eventService.getnewId();
-    this.eventService.events.push(this.newHappening);
+    this.eventService.createEvent(this.newHappening);
     console.log(this.eventService.events);
   }
 

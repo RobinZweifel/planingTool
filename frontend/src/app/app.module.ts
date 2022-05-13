@@ -20,6 +20,8 @@ import {MatNativeDateModule} from "@angular/material/core";
 import {MatDialogModule} from '@angular/material/dialog';
 import { AddEventDialogComponent } from './add-event-dialog/add-event-dialog.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -45,7 +47,8 @@ import { FormsModule } from '@angular/forms';
     MatDatepickerModule,
     MatNativeDateModule,
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

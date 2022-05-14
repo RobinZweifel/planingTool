@@ -18,8 +18,10 @@ export class AddEventDialogComponent implements OnInit {
   }
 
   addEvent(){
-    this.eventService.createEvent(this.newHappening);
-    console.log(this.eventService.events);
+    console.log(this.newHappening);
+    this.eventService.createEvent(this.newHappening).subscribe((response) => {
+      console.log(response);
+    });
   }
 
 }

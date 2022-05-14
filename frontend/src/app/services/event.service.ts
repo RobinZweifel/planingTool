@@ -9,22 +9,33 @@ import {WebRequestService} from "./web-request.service";
 export class EventService {
 
   events: Happening[] = [
-    {id: 1, title: "Geburi Party von Robin (19.)", organizer: "Robin", date: "", extra: "Eine Party mit 10 leuten"},
-    {id: 2, title: "Dinner Pary", organizer: "Joel", date: "", extra: "6 Leute, 2 übernachten"},
-    {id: 3, title: "Dart Abend", organizer: "Papa", date: "", extra: "Bitte noch Vodka kaufen"}
+    {_id: 1, title: "Geburi Party von Robin (19.)", organizer: "Robin", date: "", info: "Eine Party mit 10 leuten"},
+    {_id: 2, title: "Dinner Pary", organizer: "Joel", date: "", info: "6 Leute, 2 übernachten"},
+    {_id: 3, title: "Dart Abend", organizer: "Papa", date: "", info: "Bitte noch Vodka kaufen"}
   ];
 
   constructor(private webService: WebRequestService) { }
 
   createEvent(event: Happening){
-    this.webService.post('/event', {title: event.title, organizer: event.organizer, date: event.date, info: event.extra});
+    window.location.reload();
+    return this.webService.post('event', {title: event.title, organizer: event.organizer, date: event.date, info: event.info});
   }
 
   getEvents(){
-    return this.events;
+    return this.webService.get('events');
   }
 
+  deleteEvent(id: any){
+    console.log(id);
+    return this.webService.delete('event', id).subscribe((response) => {
+      console.log(response);
+      window.location.reload();
+    });
+  }
+
+  /*
   getNewId(){
     return Math.max(...this.events.map(o => o.id))+1;
   }
+   */
 }

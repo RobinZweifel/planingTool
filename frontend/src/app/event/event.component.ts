@@ -9,24 +9,18 @@ import {EventService} from "../services/event.service";
 })
 export class EventComponent implements OnInit {
 
-  happenings: Happening[] = [];
+  //happenings: Happening[] = [];
 
   constructor(
-    private eventService: EventService
+    public eventService: EventService
   ) { }
 
-  @Input() happening: Happening = {id: 0, title: "", date: "", organizer: "", extra: ""};
+  @Input() happening: Happening = {_id: 0, title: "", date: "", organizer: "", info: ""};
 
   ngOnInit(): void {
     console.log("on init ");
-    this.happenings = this.eventService.getEvents();
+    this.eventService.getEvents().subscribe((event) => {
+      console.log(event);
+    });
   }
-
-  deleteEvent(happening: Happening){
-    console.log(this.happenings);
-    this.happenings = this.happenings.filter(e => { return e.id != happening.id });
-    this.eventService.events = this.eventService.getEvents().filter(e => { return e.id != happening.id });
-    console.log(this.happenings);
-  }
-
 }

@@ -24,7 +24,7 @@ export class WebRequestService {
     return this.http.patch(`${this.ROOT_URL}/${uri}`, payload);
   }
 
-  delete(uri: string){
-    return this.http.delete(`${this.ROOT_URL}/${uri}`);
+  delete(uri: string, id: number){
+    return this.http.delete(`${this.ROOT_URL}/${uri}/${id}`);
   }
 }

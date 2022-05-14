@@ -20,27 +20,15 @@
       </mat-form-field>
     </p>
 
-    <!--
-    <p>
-      <mat-form-field appearance="legacy">
-        <mat-label>Date</mat-label>
-        <input matInput [matDatepicker]="picker" [value]="happening.date">
-        <mat-hint>MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
-    </p>
--->
-
     <p>
       <mat-form-field appearance="legacy">
         <mat-label>Infos</mat-label>
-        <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5">{{happening.extra}}</textarea>
+        <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5">{{happening.info}}</textarea>
         <mat-icon matSuffix>edit</mat-icon>
       </mat-form-field>
     </p>
 
-    <button (click)="deleteEvent(happening)" style="margin-left: 80%" mat-mini-fab color="warn">
+    <button (click)="eventService.deleteEvent(happening._id)" style="margin-left: 80%" mat-mini-fab color="warn">
       <mat-icon>delete</mat-icon>
     </button>
 

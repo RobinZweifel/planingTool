@@ -28,7 +28,11 @@
       </mat-form-field>
     </p>
 
-    <button (click)="eventService.deleteEvent(happening._id)" style="margin-left: 80%" mat-mini-fab color="warn">
+    <button (click)="eventService.editEvent(happening)" style="position: absolute; background-color: #208d20; color: white" mat-mini-fab>
+      <mat-icon>edit</mat-icon>
+    </button>
+
+    <button (click)="eventService.deleteEvent(happening._id)" style="margin-left: 84%" mat-mini-fab color="warn">
       <mat-icon>delete</mat-icon>
     </button>
 

@@ -8,12 +8,6 @@ import {WebRequestService} from "./web-request.service";
 })
 export class EventService {
 
-  events: Happening[] = [
-    {_id: 1, title: "Geburi Party von Robin (19.)", organizer: "Robin", date: "", info: "Eine Party mit 10 leuten"},
-    {_id: 2, title: "Dinner Pary", organizer: "Joel", date: "", info: "6 Leute, 2 übernachten"},
-    {_id: 3, title: "Dart Abend", organizer: "Papa", date: "", info: "Bitte noch Vodka kaufen"}
-  ];
-
   constructor(private webService: WebRequestService) { }
 
   createEvent(event: Happening){
@@ -33,9 +27,11 @@ export class EventService {
     });
   }
 
-  /*
-  getNewId(){
-    return Math.max(...this.events.map(o => o.id))+1;
+  editEvent(event: any){
+    console.log(event);
+    return this.webService.patch('event', event._id, event).subscribe((response) => {
+      console.log(response);
+      window.location.reload();
+    });
   }
-   */
 }

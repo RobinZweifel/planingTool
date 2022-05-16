@@ -1,0 +1,23 @@
+<mat-toolbar color="primary" class="example-toolbar">
+	<button mat-icon-button (click)="isExpanded = !isExpanded"><mat-icon>menu</mat-icon></button>
+	<h1>Zweifel Scheduling Tool</h1>
+</mat-toolbar>
+<mat-sidenav-container class="mav-container" autosize>
+	<mat-sidenav #sidenav class="sidenav" mode="side" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
+		<mat-nav-list>
+			<div class="submenu" [ngClass]="{'expanded' : showMenu}" *ngIf="isShowing || isExpanded">
+				<a mat-list-item (click)="openDialog()">
+          <mat-icon>add</mat-icon>
+          Add New Happening
+        </a>
+			</div>
+		</mat-nav-list>
+    <mat-nav-list>
+</mat-nav-list>
+	</mat-sidenav>
+
+	<div class="content">
+    <app-event *ngFor="let happening of happenings" [happening]="happening"></app-event>
+  </div>
+
+</mat-sidenav-container>

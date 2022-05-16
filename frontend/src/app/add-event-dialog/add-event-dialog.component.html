@@ -1,0 +1,45 @@
+<h1 mat-dialog-title *ngIf="newHappening.title == ''">Add a new Event</h1>
+<h1 mat-dialog-title *ngIf="newHappening.title != ''">{{newHappening.title}}</h1>
+
+<p>
+  <mat-form-field appearance="legacy">
+    <mat-label>Title</mat-label>
+    <input matInput placeholder="Title" [(ngModel)]="newHappening.title">
+  </mat-form-field>
+</p>
+
+<p>
+  <mat-form-field appearance="legacy">
+    <mat-label>Organizer</mat-label>
+    <input matInput placeholder="Name" [(ngModel)]="newHappening.organizer">
+  </mat-form-field>
+</p>
+
+<p>
+  <mat-form-field appearance="legacy">
+    <mat-label>Date</mat-label>
+    <input matInput placeholder="Date" [(ngModel)]="newHappening.date">
+  </mat-form-field>
+</p>
+
+<!--
+<p>
+  <mat-form-field appearance="legacy">
+    <mat-label>Date</mat-label>
+    <input matInput [matDatepicker]="picker">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</p>
+-->
+
+<p>
+  <mat-form-field appearance="legacy">
+    <mat-label>Infos</mat-label>
+    <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5" [(ngModel)]="newHappening.info"></textarea>
+  </mat-form-field>
+</p>
+<div mat-dialog-actions>
+  <button style="float: right" mat-button mat-dialog-close (click)="addEvent()">Add</button>
+</div>

@@ -1,0 +1,40 @@
+<mat-card>
+  <mat-card-title>{{happening.title}}</mat-card-title>
+  <mat-card-content>
+
+    <p>
+      <mat-form-field appearance="legacy">
+        <mat-label>Organizer</mat-label>
+        <input matInput placeholder="Name" [(ngModel)]="happening.organizer">
+        <mat-hint>The host of the event</mat-hint>
+        <mat-icon matSuffix>edit</mat-icon>
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field appearance="legacy">
+        <mat-label>Date</mat-label>
+        <input matInput placeholder="Date" [(ngModel)]="happening.date">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-icon matSuffix>edit</mat-icon>
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field appearance="legacy">
+        <mat-label>Infos</mat-label>
+        <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5" [(ngModel)]="happening.info">{{happening.info}}</textarea>
+        <mat-icon matSuffix>edit</mat-icon>
+      </mat-form-field>
+    </p>
+
+    <button (click)="eventService.editEvent(happening)" style="position: absolute; background-color: #208d20; color: white" mat-mini-fab>
+      <mat-icon>edit</mat-icon>
+    </button>
+
+    <button (click)="eventService.deleteEvent(happening._id)" style="margin-left: 84%" mat-mini-fab color="warn">
+      <mat-icon>delete</mat-icon>
+    </button>
+
+  </mat-card-content>
+</mat-card>

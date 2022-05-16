@@ -5,7 +5,7 @@
     <p>
       <mat-form-field appearance="legacy">
         <mat-label>Organizer</mat-label>
-        <input matInput placeholder="Name" [value]="happening.organizer">
+        <input matInput placeholder="Name" [(ngModel)]="happening.organizer">
         <mat-hint>The host of the event</mat-hint>
         <mat-icon matSuffix>edit</mat-icon>
       </mat-form-field>
@@ -14,7 +14,7 @@
     <p>
       <mat-form-field appearance="legacy">
         <mat-label>Date</mat-label>
-        <input matInput placeholder="Date" [value]="happening.date">
+        <input matInput placeholder="Date" [(ngModel)]="happening.date">
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-icon matSuffix>edit</mat-icon>
       </mat-form-field>
@@ -23,7 +23,7 @@
     <p>
       <mat-form-field appearance="legacy">
         <mat-label>Infos</mat-label>
-        <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5">{{happening.info}}</textarea>
+        <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5" [(ngModel)]="happening.info">{{happening.info}}</textarea>
         <mat-icon matSuffix>edit</mat-icon>
       </mat-form-field>
     </p>

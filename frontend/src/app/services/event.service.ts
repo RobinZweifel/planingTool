@@ -28,10 +28,14 @@ export class EventService {
   }
 
   editEvent(event: any){
-    console.log(event);
-    return this.webService.patch('event', event._id, event).subscribe((response) => {
-      console.log(response);
-      window.location.reload();
+    //console.log(JSON.parse(event.toString()));
+    return this.webService.patch('event', event._id, {
+      title: event.title,
+      organizer: event.organizer,
+      date: event.date,
+      info: event.info
+    }).subscribe((res) =>{
+      console.log(res);
     });
   }
 }

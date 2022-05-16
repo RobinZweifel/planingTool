@@ -20,11 +20,11 @@ export class WebRequestService {
     return this.http.post(`${this.ROOT_URL}/${uri}`, payload);
   }
 
-  patch(uri: string, payload: Object){
-    return this.http.patch(`${this.ROOT_URL}/${uri}`, payload);
+  patch(uri: string, id: number, payload: Object){
+    return this.http.patch(`${this.ROOT_URL}/${uri}/${id}`, payload);
   }
 
-  delete(uri: string){
-    return this.http.delete(`${this.ROOT_URL}/${uri}`);
+  delete(uri: string, id: number){
+    return this.http.delete(`${this.ROOT_URL}/${uri}/${id}`);
   }
 }

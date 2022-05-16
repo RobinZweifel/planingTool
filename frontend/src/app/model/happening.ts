@@ -1,7 +1,7 @@
 export interface Happening {
-  id: number;
+  _id: number;
   title: string;
   organizer: string;
   date: string;
-  extra: string;
+  info: string;
 }

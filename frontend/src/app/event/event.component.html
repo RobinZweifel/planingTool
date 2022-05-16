@@ -5,7 +5,7 @@
     <p>
       <mat-form-field appearance="legacy">
         <mat-label>Organizer</mat-label>
-        <input matInput placeholder="Name" [value]="happening.organizer">
+        <input matInput placeholder="Name" [(ngModel)]="happening.organizer">
         <mat-hint>The host of the event</mat-hint>
         <mat-icon matSuffix>edit</mat-icon>
       </mat-form-field>
@@ -14,33 +14,25 @@
     <p>
       <mat-form-field appearance="legacy">
         <mat-label>Date</mat-label>
-        <input matInput placeholder="Date" [value]="happening.date">
+        <input matInput placeholder="Date" [(ngModel)]="happening.date">
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-icon matSuffix>edit</mat-icon>
       </mat-form-field>
     </p>
-
-    <!--
-    <p>
-      <mat-form-field appearance="legacy">
-        <mat-label>Date</mat-label>
-        <input matInput [matDatepicker]="picker" [value]="happening.date">
-        <mat-hint>MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
-    </p>
--->
 
     <p>
       <mat-form-field appearance="legacy">
         <mat-label>Infos</mat-label>
-        <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5">{{happening.extra}}</textarea>
+        <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5" [(ngModel)]="happening.info">{{happening.info}}</textarea>
         <mat-icon matSuffix>edit</mat-icon>
       </mat-form-field>
     </p>
 
-    <button (click)="deleteEvent(happening)" style="margin-left: 80%" mat-mini-fab color="warn">
+    <button (click)="eventService.editEvent(happening)" style="position: absolute; background-color: #208d20; color: white" mat-mini-fab>
+      <mat-icon>edit</mat-icon>
+    </button>
+
+    <button (click)="eventService.deleteEvent(happening._id)" style="margin-left: 84%" mat-mini-fab color="warn">
       <mat-icon>delete</mat-icon>
     </button>
 

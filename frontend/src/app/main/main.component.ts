@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatSidenav} from "@angular/material/sidenav";
 import {ActivatedRoute, Router} from "@angular/router";
-import {Happening} from "../model/happening";
 import {EventService} from "../services/event.service";
 import {MatDialog} from "@angular/material/dialog";
 import {AddEventDialogComponent} from "../add-event-dialog/add-event-dialog.component";
@@ -13,7 +12,7 @@ import {AddEventDialogComponent} from "../add-event-dialog/add-event-dialog.comp
 })
 export class MainComponent implements OnInit {
 
-  happenings: Happening[] = [];
+  happenings: any[] | undefined;
   isExpanded = false;
   showMenu: boolean = false;
   isShowing = false;
@@ -28,7 +27,11 @@ export class MainComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.happenings = this.eventService.getEvents();
+    console.log("Main Component OnInit")
+    this.eventService.getEvents().subscribe((event: any) => {
+      this.happenings = event;
+    });
+
   }
 
   openDialog() {

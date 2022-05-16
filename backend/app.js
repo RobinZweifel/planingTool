@@ -4,6 +4,13 @@ const app = express();
 
 const {mongoose} = require('./db/mongoose');
 
+//CORS
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin"); // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 //Load mongoose modules
 const { Event } = require('./db/model/event.model');
 const events = require("events");
@@ -15,27 +22,16 @@ app.listen(3000, () => {
     console.log("Server listening on port 3000");
 })
 
-/**
- * test
- */
 app.get('/', (req, res) => {
     res.send("Hello World");
 })
 
-/**
- * GET /events
- * Goal -> get all events
- */
 app.get('/events', (req, res) => {
     Event.find({}).then((events) => {
         res.send(events);
     });
 })
 
-/**
- * POST /event
- * Goal -> create a new event
- */
 app.post('/event', (req, res) => {
     let title = req.body.title;
     let organizer = req.body.organizer;
@@ -49,14 +45,8 @@ app.post('/event', (req, res) => {
     newEvent.save().then((eventDoc) => {
         res.send(eventDoc);
     });
-
-
 })
 
-/**
- * PATTCH /event/:id
- * Goal -> update a event
- */
 app.patch('/event/:id', (req, res) => {
     Event.findOneAndUpdate({_id: req.params.id}, {
         $set: req.body
@@ -65,10 +55,6 @@ app.patch('/event/:id', (req, res) => {
     });
 })
 
-/**
- * DELETE /event/:id
- * Goal -> delete a event
- */
 app.delete('/event/:id', (req, res) => {
     Event.findByIdAndRemove({
         _id: req.params.id

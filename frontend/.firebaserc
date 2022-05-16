@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "zweifel-planing": {
+      "hosting": {
+        "planingtool": [
+          "zweifel-planing"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "zweifel-planing"
+  }
+}

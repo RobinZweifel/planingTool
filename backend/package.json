@@ -13,7 +13,7 @@
     "express": "^4.18.1",
     "mongodb": "^4.10.0",
     "mongoose": "^6.6.4",
-    "vercel": "^28.4.8"
+    "vercel": "^32.2.0"
   },
   "devDependencies": {
     "dotenv": "^16.0.3",
